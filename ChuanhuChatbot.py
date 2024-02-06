@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
 )
 
@@ -424,7 +424,7 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                     with gr.Tab(label=i18n("关于"), elem_id="about-tab"):
                         gr.Markdown(
                             '<img alt="Chuanhu Chat logo" src="file=web_assets/icon/any-icon-512.png" style="max-width: 144px;">')
-                        gr.Markdown("# "+i18n("川虎Chat"))
+                        gr.Markdown("# "+i18n("风后Chat"))
                         gr.HTML(get_html("footer.html").format(
                             versions=versions_html()), elem_id="footer")
                         gr.Markdown(CHUANHU_DESCRIPTION, elem_id="description")
@@ -803,7 +803,7 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
     )
 
 # 默认开启本地服务器，默认可以直接从IP访问，默认不创建公开分享链接
-demo.title = i18n("川虎Chat 🚀")
+demo.title = i18n("风后Chat 🚀")
 
 if __name__ == "__main__":
     reload_javascript()

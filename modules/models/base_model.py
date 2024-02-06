@@ -180,7 +180,7 @@ class ModelType(Enum):
             model_type = ModelType.YuanAI
         elif "minimax" in model_name_lower:
             model_type = ModelType.Minimax
-        elif "川虎助理" in model_name_lower:
+        elif "风后助理" in model_name_lower:
             model_type = ModelType.ChuanhuAgent
         elif "palm" in model_name_lower:
             model_type = ModelType.GooglePaLM

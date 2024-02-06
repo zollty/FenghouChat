@@ -14,12 +14,18 @@ LLAMA_INFERENCER = None
 # ChatGPT 设置
 INITIAL_SYSTEM_PROMPT = "You are a helpful assistant."
 API_HOST = "api.openai.com"
-OPENAI_API_BASE = "https://api.openai.com/v1"
-CHAT_COMPLETION_URL = "https://api.openai.com/v1/chat/completions"
-IMAGES_COMPLETION_URL = "https://api.openai.com/v1/images/generations"
-COMPLETION_URL = "https://api.openai.com/v1/completions"
-BALANCE_API_URL="https://api.openai.com/dashboard/billing/credit_grants"
-USAGE_API_URL="https://api.openai.com/dashboard/billing/usage"
+# OPENAI_API_BASE = "https://api.openai.com/v1"
+# CHAT_COMPLETION_URL = "https://api.openai.com/v1/chat/completions"
+# IMAGES_COMPLETION_URL = "https://api.openai.com/v1/images/generations"
+# COMPLETION_URL = "https://api.openai.com/v1/completions"
+# BALANCE_API_URL="https://api.openai.com/dashboard/billing/credit_grants"
+# USAGE_API_URL="https://api.openai.com/dashboard/billing/usage"
+OPENAI_API_BASE = "http://127.0.0.1:20000/v1" # "https://api.openai.com/v1"
+CHAT_COMPLETION_URL = "http://127.0.0.1:20000/v1/chat/completions"
+IMAGES_COMPLETION_URL = "http://127.0.0.1:20000/v1/images/generations"
+COMPLETION_URL = "http://127.0.0.1:20000/v1/completions"
+BALANCE_API_URL = "http://127.0.0.1:20000/dashboard/billing/credit_grants"
+USAGE_API_URL = "http://127.0.0.1:20000/dashboard/billing/usage"
 HISTORY_DIR = Path("history")
 HISTORY_DIR = "history"
 TEMPLATES_DIR = "templates"
@@ -45,131 +51,151 @@ CONCURRENT_COUNT = 100 # 允许同时使用的用户数量
 SIM_K = 5
 INDEX_QUERY_TEMPRATURE = 1.0
 
-CHUANHU_TITLE = i18n("川虎Chat 🚀")
+CHUANHU_TITLE = i18n("风后Chat 🚀")
 
-CHUANHU_DESCRIPTION = i18n("由Bilibili [土川虎虎虎](https://space.bilibili.com/29125536)、[明昭MZhao](https://space.bilibili.com/24807452) 和 [Keldos](https://github.com/Keldos-Li) 开发<br />访问川虎Chat的 [GitHub项目](https://github.com/GaiZhenbiao/ChuanhuChatGPT) 下载最新版脚本")
+CHUANHU_DESCRIPTION = i18n("由Bilibili [土风后虎虎](https://space.bilibili.com/29125536)、[明昭MZhao](https://space.bilibili.com/24807452) 和 [Keldos](https://github.com/Keldos-Li) 开发<br />访问风后Chat的 [GitHub项目](https://github.com/GaiZhenbiao/ChuanhuChatGPT) 下载最新版脚本")
 
 
 ONLINE_MODELS = [
-    "GPT3.5 Turbo",
-    "GPT3.5 Turbo Instruct",
-    "GPT3.5 Turbo 16K",
-    "GPT3.5 Turbo 0301",
-    "GPT3.5 Turbo 0613",
-    "GPT3.5 Turbo 1106",
-    "GPT4",
-    "GPT4 32K",
-    "GPT4 Turbo",
-    "GPT4 Vision",
-    "川虎助理",
-    "川虎助理 Pro",
-    "DALL-E 3",
-    "GooglePaLM",
-    "xmchat",
-    "Azure OpenAI",
-    "yuanai-1.0-base_10B",
-    "yuanai-1.0-translate",
-    "yuanai-1.0-dialog",
-    "yuanai-1.0-rhythm_poems",
-    "minimax-abab5-chat",
-    "midjourney",
-    "讯飞星火大模型V3.0",
-    "讯飞星火大模型V2.0",
-    "讯飞星火大模型V1.5",
-    "Claude",
-    "ERNIE-Bot-turbo",
-    "ERNIE-Bot",
-    "ERNIE-Bot-4",
+    "Qwen-1.8B GPT",
+    "chatglm3-6b-32k GPT",
+    # "GPT3.5 Turbo",
+    # "GPT3.5 Turbo Instruct",
+    # "GPT3.5 Turbo 16K",
+    # "GPT3.5 Turbo 0301",
+    # "GPT3.5 Turbo 0613",
+    # "GPT3.5 Turbo 1106",
+    # "GPT4",
+    # "GPT4 32K",
+    # "GPT4 Turbo",
+    # "GPT4 Vision",
+    # "风后助理",
+    # "风后助理 Pro",
+    # "DALL-E 3",
+    # "GooglePaLM",
+    # "xmchat",
+    # "Azure OpenAI",
+    # "yuanai-1.0-base_10B",
+    # "yuanai-1.0-translate",
+    # "yuanai-1.0-dialog",
+    # "yuanai-1.0-rhythm_poems",
+    # "minimax-abab5-chat",
+    # "midjourney",
+    # "讯飞星火大模型V3.0",
+    # "讯飞星火大模型V2.0",
+    # "讯飞星火大模型V1.5",
+    # "Claude",
+    # "ERNIE-Bot-turbo",
+    # "ERNIE-Bot",
+    # "ERNIE-Bot-4",
 ]
 
-LOCAL_MODELS = [
-    "chatglm-6b",
-    "chatglm-6b-int4",
-    "chatglm-6b-int4-ge",
-    "chatglm2-6b",
-    "chatglm2-6b-int4",
-    "chatglm3-6b",
-    "chatglm3-6b-32k",
-    "StableLM",
-    "MOSS",
-    "Llama-2-7B-Chat",
-    "Qwen 7B",
-    "Qwen 14B"
-]
+LOCAL_MODELS = []
+#     "chatglm-6b",
+#     "chatglm-6b-int4",
+#     "chatglm-6b-int4-ge",
+#     "chatglm2-6b",
+#     "chatglm2-6b-int4",
+#     "chatglm3-6b",
+#     "chatglm3-6b-32k",
+#     "StableLM",
+#     "MOSS",
+#     "Llama-2-7B-Chat",
+#     "Qwen 7B",
+#     "Qwen 14B"
+# ]
 
 # Additional metadata for online and local models
 MODEL_METADATA = {
-    "Llama-2-7B":{
-        "repo_id": "TheBloke/Llama-2-7B-GGUF",
-        "filelist": ["llama-2-7b.Q6_K.gguf"],
+    "Qwen-7B gpt": {
+        "model_name": "Qwen-7B-Chat",
+        "token_limit": 4096
     },
-    "Llama-2-7B-Chat":{
-        "repo_id": "TheBloke/Llama-2-7b-Chat-GGUF",
-        "filelist": ["llama-2-7b-chat.Q6_K.gguf"],
+    "Qwen-1.8B GPT": {
+        "model_name": "Qwen-1.8B-Chat",
+        "token_limit": 4096
     },
-    "Qwen 7B": {
-        "repo_id": "Qwen/Qwen-7B-Chat-Int4",
+    "chatglm3-6b-32k GPT": {
+        "model_name": "chatglm3-6b-32k",
+        "token_limit": 4096
     },
-    "Qwen 14B": {
-        "repo_id": "Qwen/Qwen-14B-Chat-Int4",
-    },
-    "GPT3.5 Turbo": {
-        "model_name": "gpt-3.5-turbo",
-        "token_limit": 4096,
-    },
-    "GPT3.5 Turbo Instruct": {
-        "model_name": "gpt-3.5-turbo-instruct",
-        "token_limit": 4096,
-    },
-    "GPT3.5 Turbo 16K": {
-        "model_name": "gpt-3.5-turbo-16k",
-        "token_limit": 16384,
-    },
-    "GPT3.5 Turbo 0301": {
-        "model_name": "gpt-3.5-turbo-0301",
-        "token_limit": 4096,
-    },
-    "GPT3.5 Turbo 0613": {
-        "model_name": "gpt-3.5-turbo-0613",
-        "token_limit": 4096,
-    },
-    "GPT3.5 Turbo 1106": {
-    "model_name": "gpt-3.5-turbo-1106",
-    "token_limit": 16384,
-    },
-    "GPT4": {
-        "model_name": "gpt-4",
-        "token_limit": 8192,
-    },
-    "GPT4 32K": {
-        "model_name": "gpt-4-32k",
-        "token_limit": 32768,
-    },
-    "GPT4 Turbo": {
-        "model_name": "gpt-4-1106-preview",
-        "token_limit": 128000,
-    },
-    "GPT4 Vision": {
-        "model_name": "gpt-4-vision-preview",
-        "token_limit": 128000,
-    },
-    "Claude": {
-        "model_name": "Claude",
-        "token_limit": 4096,
-    },
-    "ERNIE-Bot-turbo": {
-        "model_name": "ERNIE-Bot-turbo",
-        "token_limit": 1024,
-    },
-    "ERNIE-Bot": {
-        "model_name": "ERNIE-Bot",
-        "token_limit": 1024,
-    },
-    "ERNIE-Bot-4": {
-        "model_name": "ERNIE-Bot-4",
-        "token_limit": 1024,
+   "Qwen-14B GPT": {
+        "model_name": "Qwen-14B-Chat",
+        "token_limit": 4096
     },
 }
+# MODEL_METADATA = {
+#     "Llama-2-7B":{
+#         "repo_id": "TheBloke/Llama-2-7B-GGUF",
+#         "filelist": ["llama-2-7b.Q6_K.gguf"],
+#     },
+#     "Llama-2-7B-Chat":{
+#         "repo_id": "TheBloke/Llama-2-7b-Chat-GGUF",
+#         "filelist": ["llama-2-7b-chat.Q6_K.gguf"],
+#     },
+#     "Qwen 7B": {
+#         "repo_id": "Qwen/Qwen-7B-Chat-Int4",
+#     },
+#     "Qwen 14B": {
+#         "repo_id": "Qwen/Qwen-14B-Chat-Int4",
+#     },
+#     "GPT3.5 Turbo": {
+#         "model_name": "gpt-3.5-turbo",
+#         "token_limit": 4096,
+#     },
+#     "GPT3.5 Turbo Instruct": {
+#         "model_name": "gpt-3.5-turbo-instruct",
+#         "token_limit": 4096,
+#     },
+#     "GPT3.5 Turbo 16K": {
+#         "model_name": "gpt-3.5-turbo-16k",
+#         "token_limit": 16384,
+#     },
+#     "GPT3.5 Turbo 0301": {
+#         "model_name": "gpt-3.5-turbo-0301",
+#         "token_limit": 4096,
+#     },
+#     "GPT3.5 Turbo 0613": {
+#         "model_name": "gpt-3.5-turbo-0613",
+#         "token_limit": 4096,
+#     },
+#     "GPT3.5 Turbo 1106": {
+#     "model_name": "gpt-3.5-turbo-1106",
+#     "token_limit": 16384,
+#     },
+#     "GPT4": {
+#         "model_name": "gpt-4",
+#         "token_limit": 8192,
+#     },
+#     "GPT4 32K": {
+#         "model_name": "gpt-4-32k",
+#         "token_limit": 32768,
+#     },
+#     "GPT4 Turbo": {
+#         "model_name": "gpt-4-1106-preview",
+#         "token_limit": 128000,
+#     },
+#     "GPT4 Vision": {
+#         "model_name": "gpt-4-vision-preview",
+#         "token_limit": 128000,
+#     },
+#     "Claude": {
+#         "model_name": "Claude",
+#         "token_limit": 4096,
+#     },
+#     "ERNIE-Bot-turbo": {
+#         "model_name": "ERNIE-Bot-turbo",
+#         "token_limit": 1024,
+#     },
+#     "ERNIE-Bot": {
+#         "model_name": "ERNIE-Bot",
+#         "token_limit": 1024,
+#     },
+#     "ERNIE-Bot-4": {
+#         "model_name": "ERNIE-Bot-4",
+#         "token_limit": 1024,
+#     },
+# }
 
 if os.environ.get('HIDE_LOCAL_MODELS', 'false') == 'true':
     MODELS = ONLINE_MODELS

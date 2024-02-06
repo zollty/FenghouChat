@@ -155,6 +155,8 @@ class OpenAIClient(BaseLLMModel):
 
         with retrieve_proxy():
             try:
+                logging.debug("请求API-----------------------------------请求数据为：")
+                logging.debug(payload)
                 response = requests.post(
                     shared.state.chat_completion_url,
                     headers=headers,
