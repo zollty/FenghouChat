@@ -199,23 +199,23 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                         obj="toolbox"), elem_classes="close-btn")
                 with gr.Tabs(elem_id="chuanhu-toolbox-tabs"):
                     with gr.Tab(label=i18n("对话")):
-                        with gr.Accordion(label=i18n("模型"), open=not HIDE_MY_KEY, visible=not HIDE_MY_KEY):
-                            keyTxt = gr.Textbox(
-                                show_label=True,
-                                placeholder=f"Your API-key...",
-                                value=hide_middle_chars(user_api_key.value),
-                                type="password",
-                                visible=not HIDE_MY_KEY,
-                                label="API-Key",
-                                elem_id="api-key"
-                            )
-                            if multi_api_key:
-                                usageTxt = gr.Markdown(i18n(
-                                    "多账号模式已开启，无需输入key，可直接开始对话"), elem_id="usage-display", elem_classes="insert-block", visible=show_api_billing)
-                            else:
-                                usageTxt = gr.Markdown(i18n(
-                                    "**发送消息** 或 **提交key** 以显示额度"), elem_id="usage-display", elem_classes="insert-block", visible=show_api_billing)
-                        gr.Markdown("---", elem_classes="hr-line", visible=not HIDE_MY_KEY)
+                        # with gr.Accordion(label=i18n("模型"), open=not HIDE_MY_KEY, visible=not HIDE_MY_KEY):
+                        #     keyTxt = gr.Textbox(
+                        #         show_label=True,
+                        #         placeholder=f"Your API-key...",
+                        #         value=hide_middle_chars(user_api_key.value),
+                        #         type="password",
+                        #         visible=not HIDE_MY_KEY,
+                        #         label="API-Key",
+                        #         elem_id="api-key"
+                        #     )
+                        #     if multi_api_key:
+                        #         usageTxt = gr.Markdown(i18n(
+                        #             "多账号模式已开启，无需输入key，可直接开始对话"), elem_id="usage-display", elem_classes="insert-block", visible=show_api_billing)
+                        #     else:
+                        #         usageTxt = gr.Markdown(i18n(
+                        #             "**发送消息** 或 **提交key** 以显示额度"), elem_id="usage-display", elem_classes="insert-block", visible=show_api_billing)
+                        # gr.Markdown("---", elem_classes="hr-line", visible=not HIDE_MY_KEY)
                         with gr.Accordion(label="Prompt", open=True):
                             systemPromptTxt = gr.Textbox(
                                 show_label=True,
@@ -251,99 +251,99 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                                                 multiselect=False,
                                                 container=False,
                                             )
-                        gr.Markdown("---", elem_classes="hr-line")
-                        with gr.Accordion(label=i18n("知识库"), open=True, elem_id="gr-kb-accordion"):
-                            use_websearch_checkbox = gr.Checkbox(label=i18n(
-                                "使用在线搜索"), value=False, elem_classes="switch-checkbox", elem_id="gr-websearch-cb", visible=False)
-                            index_files = gr.Files(label=i18n(
-                                "上传"), type="file", file_types=[".pdf", ".docx", ".pptx", ".epub", ".xlsx", ".txt", "text", "image"], elem_id="upload-index-file")
-                            two_column = gr.Checkbox(label=i18n(
-                                "双栏pdf"), value=advance_docs["pdf"].get("two_column", False))
-                            summarize_btn = gr.Button(i18n("总结"))
+                        # gr.Markdown("---", elem_classes="hr-line")
+                        # with gr.Accordion(label=i18n("知识库"), open=True, elem_id="gr-kb-accordion"):
+                        #     use_websearch_checkbox = gr.Checkbox(label=i18n(
+                        #         "使用在线搜索"), value=False, elem_classes="switch-checkbox", elem_id="gr-websearch-cb", visible=False)
+                        #     index_files = gr.Files(label=i18n(
+                        #         "上传"), type="file", file_types=[".pdf", ".docx", ".pptx", ".epub", ".xlsx", ".txt", "text", "image"], elem_id="upload-index-file")
+                        #     two_column = gr.Checkbox(label=i18n(
+                        #         "双栏pdf"), value=advance_docs["pdf"].get("two_column", False))
+                        #     summarize_btn = gr.Button(i18n("总结"))
                             # TODO: 公式ocr
                             # formula_ocr = gr.Checkbox(label=i18n("识别公式"), value=advance_docs["pdf"].get("formula_ocr", False))
 
-                    with gr.Tab(label=i18n("参数")):
-                        gr.Markdown(i18n("# ⚠️ 务必谨慎更改 ⚠️"),
-                                    elem_id="advanced-warning")
-                        with gr.Accordion(i18n("参数"), open=True):
-                            temperature_slider = gr.Slider(
-                                minimum=-0,
-                                maximum=2.0,
-                                value=1.0,
-                                step=0.1,
-                                interactive=True,
-                                label="temperature",
-                            )
-                            top_p_slider = gr.Slider(
-                                minimum=-0,
-                                maximum=1.0,
-                                value=1.0,
-                                step=0.05,
-                                interactive=True,
-                                label="top-p",
-                            )
-                            n_choices_slider = gr.Slider(
-                                minimum=1,
-                                maximum=10,
-                                value=1,
-                                step=1,
-                                interactive=True,
-                                label="n choices",
-                            )
-                            stop_sequence_txt = gr.Textbox(
-                                show_label=True,
-                                placeholder=i18n("停止符，用英文逗号隔开..."),
-                                label="stop",
-                                value="",
-                                lines=1,
-                            )
-                            max_context_length_slider = gr.Slider(
-                                minimum=1,
-                                maximum=32768,
-                                value=2000,
-                                step=1,
-                                interactive=True,
-                                label="max context",
-                            )
-                            max_generation_slider = gr.Slider(
-                                minimum=1,
-                                maximum=32768,
-                                value=1000,
-                                step=1,
-                                interactive=True,
-                                label="max generations",
-                            )
-                            presence_penalty_slider = gr.Slider(
-                                minimum=-2.0,
-                                maximum=2.0,
-                                value=0.0,
-                                step=0.01,
-                                interactive=True,
-                                label="presence penalty",
-                            )
-                            frequency_penalty_slider = gr.Slider(
-                                minimum=-2.0,
-                                maximum=2.0,
-                                value=0.0,
-                                step=0.01,
-                                interactive=True,
-                                label="frequency penalty",
-                            )
-                            logit_bias_txt = gr.Textbox(
-                                show_label=True,
-                                placeholder=f"word:likelihood",
-                                label="logit bias",
-                                value="",
-                                lines=1,
-                            )
-                            user_identifier_txt = gr.Textbox(
-                                show_label=True,
-                                placeholder=i18n("用于定位滥用行为"),
-                                label=i18n("用户标识符"),
-                                value=user_name.value,
-                                lines=1,
-                            )
+                    # with gr.Tab(label=i18n("参数")):
+                    #     gr.Markdown(i18n("# ⚠️ 务必谨慎更改 ⚠️"),
+                    #                 elem_id="advanced-warning")
+                    #     with gr.Accordion(i18n("参数"), open=True):
+                    #         temperature_slider = gr.Slider(
+                    #             minimum=-0,
+                    #             maximum=2.0,
+                    #             value=1.0,
+                    #             step=0.1,
+                    #             interactive=True,
+                    #             label="temperature",
+                    #         )
+                    #         top_p_slider = gr.Slider(
+                    #             minimum=-0,
+                    #             maximum=1.0,
+                    #             value=1.0,
+                    #             step=0.05,
+                    #             interactive=True,
+                    #             label="top-p",
+                    #         )
+                    #         n_choices_slider = gr.Slider(
+                    #             minimum=1,
+                    #             maximum=10,
+                    #             value=1,
+                    #             step=1,
+                    #             interactive=True,
+                    #             label="n choices",
+                    #         )
+                    #         stop_sequence_txt = gr.Textbox(
+                    #             show_label=True,
+                    #             placeholder=i18n("停止符，用英文逗号隔开..."),
+                    #             label="stop",
+                    #             value="",
+                    #             lines=1,
+                    #         )
+                    #         max_context_length_slider = gr.Slider(
+                    #             minimum=1,
+                    #             maximum=32768,
+                    #             value=2000,
+                    #             step=1,
+                    #             interactive=True,
+                    #             label="max context",
+                    #         )
+                    #         max_generation_slider = gr.Slider(
+                    #             minimum=1,
+                    #             maximum=32768,
+                    #             value=1000,
+                    #             step=1,
+                    #             interactive=True,
+                    #             label="max generations",
+                    #         )
+                    #         presence_penalty_slider = gr.Slider(
+                    #             minimum=-2.0,
+                    #             maximum=2.0,
+                    #             value=0.0,
+                    #             step=0.01,
+                    #             interactive=True,
+                    #             label="presence penalty",
+                    #         )
+                    #         frequency_penalty_slider = gr.Slider(
+                    #             minimum=-2.0,
+                    #             maximum=2.0,
+                    #             value=0.0,
+                    #             step=0.01,
+                    #             interactive=True,
+                    #             label="frequency penalty",
+                    #         )
+                    #         logit_bias_txt = gr.Textbox(
+                    #             show_label=True,
+                    #             placeholder=f"word:likelihood",
+                    #             label="logit bias",
+                    #             value="",
+                    #             lines=1,
+                    #         )
+                    #         user_identifier_txt = gr.Textbox(
+                    #             show_label=True,
+                    #             placeholder=i18n("用于定位滥用行为"),
+                    #             label=i18n("用户标识符"),
+                    #             value=user_name.value,
+                    #             lines=1,
+                    #         )
                     with gr.Tab(label=i18n("拓展")):
                         gr.Markdown(
                             "Will be here soon...\n(We hope)\n\nAnd we hope you can help us to make more extensions!")
@@ -389,7 +389,7 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                             value=HISTORY_NAME_METHODS[chat_name_method_index],
                         )
                         single_turn_checkbox = gr.Checkbox(label=i18n(
-                            "单轮对话"), value=False, elem_classes="switch-checkbox", elem_id="gr-single-session-cb", visible=False)
+                            "单轮对话"), value=True, elem_classes="switch-checkbox", elem_id="gr-single-session-cb", visible=False)
                         # checkUpdateBtn = gr.Button(i18n("🔄 检查更新..."), visible=check_update)
 
                     with gr.Tab(i18n("网络")):
