@@ -264,86 +264,96 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                             # formula_ocr = gr.Checkbox(label=i18n("识别公式"), value=advance_docs["pdf"].get("formula_ocr", False))
 
                     # with gr.Tab(label=i18n("参数")):
-                    #     gr.Markdown(i18n("# ⚠️ 务必谨慎更改 ⚠️"),
-                    #                 elem_id="advanced-warning")
-                    #     with gr.Accordion(i18n("参数"), open=True):
-                    #         temperature_slider = gr.Slider(
-                    #             minimum=-0,
-                    #             maximum=2.0,
-                    #             value=1.0,
-                    #             step=0.1,
-                    #             interactive=True,
-                    #             label="temperature",
-                    #         )
-                    #         top_p_slider = gr.Slider(
-                    #             minimum=-0,
-                    #             maximum=1.0,
-                    #             value=1.0,
-                    #             step=0.05,
-                    #             interactive=True,
-                    #             label="top-p",
-                    #         )
-                    #         n_choices_slider = gr.Slider(
-                    #             minimum=1,
-                    #             maximum=10,
-                    #             value=1,
-                    #             step=1,
-                    #             interactive=True,
-                    #             label="n choices",
-                    #         )
-                    #         stop_sequence_txt = gr.Textbox(
-                    #             show_label=True,
-                    #             placeholder=i18n("停止符，用英文逗号隔开..."),
-                    #             label="stop",
-                    #             value="",
-                    #             lines=1,
-                    #         )
-                    #         max_context_length_slider = gr.Slider(
-                    #             minimum=1,
-                    #             maximum=32768,
-                    #             value=2000,
-                    #             step=1,
-                    #             interactive=True,
-                    #             label="max context",
-                    #         )
-                    #         max_generation_slider = gr.Slider(
-                    #             minimum=1,
-                    #             maximum=32768,
-                    #             value=1000,
-                    #             step=1,
-                    #             interactive=True,
-                    #             label="max generations",
-                    #         )
-                    #         presence_penalty_slider = gr.Slider(
-                    #             minimum=-2.0,
-                    #             maximum=2.0,
-                    #             value=0.0,
-                    #             step=0.01,
-                    #             interactive=True,
-                    #             label="presence penalty",
-                    #         )
-                    #         frequency_penalty_slider = gr.Slider(
-                    #             minimum=-2.0,
-                    #             maximum=2.0,
-                    #             value=0.0,
-                    #             step=0.01,
-                    #             interactive=True,
-                    #             label="frequency penalty",
-                    #         )
-                    #         logit_bias_txt = gr.Textbox(
-                    #             show_label=True,
-                    #             placeholder=f"word:likelihood",
-                    #             label="logit bias",
-                    #             value="",
-                    #             lines=1,
-                    #         )
-                    #         user_identifier_txt = gr.Textbox(
-                    #             show_label=True,
-                    #             placeholder=i18n("用于定位滥用行为"),
-                    #             label=i18n("用户标识符"),
-                    #             value=user_name.value,
-                    #             lines=1,
-                    #         )
+                        gr.Markdown(i18n("# ⚠️ 务必谨慎更改 ⚠️"),
+                                    elem_id="advanced-warning")
+                        with gr.Accordion(i18n("参数"), open=True):
+                            temperature_slider = gr.Slider(
+                                minimum=-0,
+                                maximum=2.0,
+                                value=1.0,
+                                step=0.1,
+                                interactive=True,
+                                label="temperature",
+                                visible=False,
+                            )
+                            top_p_slider = gr.Slider(
+                                minimum=-0,
+                                maximum=1.0,
+                                value=1.0,
+                                step=0.05,
+                                interactive=True,
+                                label="top-p",
+                                visible=False,
+                            )
+                            n_choices_slider = gr.Slider(
+                                minimum=1,
+                                maximum=10,
+                                value=1,
+                                step=1,
+                                interactive=True,
+                                label="n choices",
+                                visible=False,
+                            )
+                            stop_sequence_txt = gr.Textbox(
+                                show_label=True,
+                                placeholder=i18n("停止符，用英文逗号隔开..."),
+                                label="stop",
+                                value="",
+                                lines=1,
+                                visible=False,
+                            )
+                            max_context_length_slider = gr.Slider(
+                                minimum=1,
+                                maximum=32768,
+                                value=2000,
+                                step=1,
+                                interactive=True,
+                                label="max context",
+                                visible=False,
+                            )
+                            max_generation_slider = gr.Slider(
+                                minimum=1,
+                                maximum=32768,
+                                value=1000,
+                                step=1,
+                                interactive=True,
+                                label="max generations",
+                                visible=False,
+                            )
+                            presence_penalty_slider = gr.Slider(
+                                minimum=-2.0,
+                                maximum=2.0,
+                                value=0.0,
+                                step=0.01,
+                                interactive=True,
+                                label="presence penalty",
+                                visible=False,
+                            )
+                            frequency_penalty_slider = gr.Slider(
+                                minimum=-2.0,
+                                maximum=2.0,
+                                value=0.0,
+                                step=0.01,
+                                interactive=True,
+                                label="frequency penalty",
+                                visible=False,
+                            )
+                            logit_bias_txt = gr.Textbox(
+                                show_label=True,
+                                placeholder=f"word:likelihood",
+                                label="logit bias",
+                                value="",
+                                lines=1,
+                                visible=False,
+                            )
+                            user_identifier_txt = gr.Textbox(
+                                show_label=True,
+                                placeholder=i18n("用于定位滥用行为"),
+                                label=i18n("用户标识符"),
+                                value=user_name.value,
+                                lines=1,
+                                visible=False,
+                            )
                     with gr.Tab(label=i18n("拓展")):
                         gr.Markdown(
                             "Will be here soon...\n(We hope)\n\nAnd we hope you can help us to make more extensions!")
