@@ -78,7 +78,7 @@
   "http_proxy": "http://127.0.0.1:7890",
   // 自定义端口、自定义ip（请替换对应内容）
   "server_name": "0.0.0.0",
-  "server_port": 7860,
+  "server_port": 7775,
   //如果不想自动打开浏览器，设置为false
   "autobrowser": false
 }
