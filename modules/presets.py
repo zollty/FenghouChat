@@ -58,6 +58,7 @@ CHUANHU_DESCRIPTION = "FenghouChat base on [ChuanhuChat](https://github.com/zoll
 
 ONLINE_MODELS = [
     "Qwen-1.8B GPT",
+    "Qwen1.5-7B GPT",
     "chatglm3-6b-32k GPT",
     # "GPT3.5 Turbo",
     # "GPT3.5 Turbo Instruct",
@@ -122,6 +123,10 @@ MODEL_METADATA = {
    "Qwen-14B GPT": {
         "model_name": "Qwen-14B-Chat",
         "token_limit": 4096
+    },
+   "Qwen1.5-7B GPT": {
+        "model_name": "Qwen1.5-7B-Chat",
+        "token_limit": 8192
     },
 }
 # MODEL_METADATA = {
