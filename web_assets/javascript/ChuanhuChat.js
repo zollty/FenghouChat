@@ -124,7 +124,7 @@ function initialize() {
 
     setChatbotScroll();
     setTimeout(showOrHideUserInfo(), 2000);
-	btnToggleDarkMode();
+	setTimeout(btnToggleDarkMode(), 2000);
 
     // setHistroyPanel();
     // trainBody.classList.add('hide-body');
@@ -470,5 +470,5 @@ let description = `
 GitHub repository: [https://github.com/GaiZhenbiao/ChuanhuChatGPT]\n
 Enjoy our project!\n
 `
-console.log(`%c${makeML(ChuanhuInfo)}`,styleTitle1);
-console.log(`%c${description}`, styleDesc1);
+// console.log(`%c${makeML(ChuanhuInfo)}`,styleTitle1);
+// console.log(`%c${description}`, styleDesc1);
