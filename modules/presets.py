@@ -290,7 +290,7 @@ Please summarize the following conversation for a chat topic.
 No more than 16 characters.
 No special characters.
 Punctuation mark is banned.
-Not including '.' ':' '?' '!' '"'  '“' '*' '<' '>'.
+Not including '.' ':' '?' '!' '"' '“' '*' '<' '>'.
 Reply in user's language.
 """
 
