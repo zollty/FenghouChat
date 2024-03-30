@@ -148,9 +148,9 @@ with gr.Blocks(theme=small_and_beautiful_theme) as demo:
                         with gr.Row(elem_id="chatbot-input-row"):
                             gr.HTML(get_html("chatbot_more.html").format(
                                 single_turn_label=i18n("单轮对话"),
-                                # websearch_label=i18n("在线搜索"),
-                                # upload_file_label=i18n("上传文件"),
-                                # uploaded_files_label=i18n("知识库文件"),
+                                websearch_label=i18n("在线搜索"),
+                                upload_file_label=i18n("上传文件"),
+                                uploaded_files_label=i18n("知识库文件"),
                                 uploaded_files_tip=i18n("在工具箱中管理知识库文件")
                             ))
                             with gr.Row(elem_id="chatbot-input-tb-row"):
