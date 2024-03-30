@@ -299,8 +299,10 @@ function setScrollShadow() {
 function setPopupBoxPosition() {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
-    popupWrapper.style.height = `${screenHeight}px`;
-    popupWrapper.style.width = `${screenWidth}px`;
+	if (popupWrapper) {
+	    popupWrapper.style.height = `${screenHeight}px`;
+        popupWrapper.style.width = `${screenWidth}px`;
+	}
     // const popupBoxWidth = 680;
     // const popupBoxHeight = 400;
     // chuanhuPopup.style.left = `${(screenWidth - popupBoxWidth) / 2}px`;
