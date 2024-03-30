@@ -60,24 +60,24 @@ var chatbotSingleSessionCB;
 var chatbotOnlineSearchCB;
 function setCheckboxes() {
     chatbotSingleSessionCB = gradioApp().querySelector('input[name="single-session-cb"]');
-    chatbotOnlineSearchCB = gradioApp().querySelector('input[name="online-search-cb"]');
+//    chatbotOnlineSearchCB = gradioApp().querySelector('input[name="online-search-cb"]');
     grSingleSessionCB = gradioApp().querySelector("#gr-single-session-cb > label > input");
-    grOnlineSearchCB = gradioApp().querySelector("#gr-websearch-cb > label> input");
+//    grOnlineSearchCB = gradioApp().querySelector("#gr-websearch-cb > label> input");
     
     chatbotSingleSessionCB.addEventListener('change', (e) => {
         grSingleSessionCB.checked = chatbotSingleSessionCB.checked;
         gradioApp().querySelector('#change-single-session-btn').click();
     });
-    chatbotOnlineSearchCB.addEventListener('change', (e) => {
-        grOnlineSearchCB.checked = chatbotOnlineSearchCB.checked;
-        gradioApp().querySelector('#change-online-search-btn').click();
-    });
+//    chatbotOnlineSearchCB.addEventListener('change', (e) => {
+//        grOnlineSearchCB.checked = chatbotOnlineSearchCB.checked;
+//        gradioApp().querySelector('#change-online-search-btn').click();
+//    });
     grSingleSessionCB.addEventListener('change', (e) => {
         chatbotSingleSessionCB.checked = grSingleSessionCB.checked;
     });
-    grOnlineSearchCB.addEventListener('change', (e) => {
-        chatbotOnlineSearchCB.checked = grOnlineSearchCB.checked;
-    });
+//    grOnlineSearchCB.addEventListener('change', (e) => {
+//        chatbotOnlineSearchCB.checked = grOnlineSearchCB.checked;
+//    });
 }
 
 function bgChangeSingleSession() {
@@ -93,7 +93,7 @@ function bgChangeOnlineSearch() {
 
 function updateCheckboxes() {
     chatbotSingleSessionCB.checked = grSingleSessionCB.checked;
-    chatbotOnlineSearchCB.checked = grOnlineSearchCB.checked;
+    // chatbotOnlineSearchCB.checked = grOnlineSearchCB.checked;
 }
 
 // UTILS
