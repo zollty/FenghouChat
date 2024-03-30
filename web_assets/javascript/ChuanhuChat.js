@@ -124,6 +124,7 @@ function initialize() {
 
     setChatbotScroll();
     setTimeout(showOrHideUserInfo(), 2000);
+	btnToggleDarkMode();
 
     // setHistroyPanel();
     // trainBody.classList.add('hide-body');
@@ -471,4 +472,3 @@ Enjoy our project!\n
 `
 console.log(`%c${makeML(ChuanhuInfo)}`,styleTitle1);
 console.log(`%c${description}`, styleDesc1);
-btnToggleDarkMode();
