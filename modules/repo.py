@@ -123,7 +123,7 @@ def versions_html():
          • 
         Gradio: {gr.__version__}
          • 
-        <a style="text-decoration:none;color:inherit" href="https://github.com/GaiZhenbiao/ChuanhuChatGPT">ChuanhuChat</a>: {repo_version}
+        <a style="text-decoration:none;color:inherit" href="https://shudi.yuque.com/ftc8lc/wiki">Fenghou AI</a>: 1.2.0
         """
 
 
