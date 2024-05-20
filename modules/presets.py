@@ -137,11 +137,17 @@ DEFAULT_METADATA = {
 MODEL_METADATA = {
     "Qwen-7B gpt": {
         "model_name": "Qwen-7B-Chat",
+        "description": "groq_llama3_70b_description",
         "token_limit": 4096
     },
     "Qwen-1.8B GPT": {
         "model_name": "Qwen-1.8B-Chat",
-        "token_limit": 4096
+        "token_limit": 4096,
+        "description": "gpt_default_slogan",
+        "placeholder": {
+            "logo": "file=web_assets/model_logos/openai-green.webp",
+            "slogan": i18n("gpt_default_slogan"),
+        }
     },
     "chatglm3-6b-32k GPT": {
         "model_name": "chatglm3-6b-32k",
@@ -153,7 +159,12 @@ MODEL_METADATA = {
     },
    "Qwen1.5-7B GPT": {
         "model_name": "Qwen1.5-7B-Chat",
-        "token_limit": 8192
+        "token_limit": 8192,
+        "description": "gpt_default_slogan",
+        "placeholder": {
+            "logo": "file=web_assets/model_logos/openai-green.webp",
+            "slogan": i18n("gpt_default_slogan"),
+        }
     },
 }
 # MODEL_METADATA = {
