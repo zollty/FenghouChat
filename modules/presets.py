@@ -10,6 +10,8 @@ CHATGLM_MODEL = None
 CHATGLM_TOKENIZER = None
 LLAMA_MODEL = None
 LLAMA_INFERENCER = None
+GEMMA_MODEL = None
+GEMMA_TOKENIZER = None
 
 # ChatGPT 设置
 INITIAL_SYSTEM_PROMPT = "You are a helpful assistant."
@@ -105,6 +107,31 @@ LOCAL_MODELS = []
 #     "Qwen 7B",
 #     "Qwen 14B"
 # ]
+DEFAULT_METADATA = {
+    "repo_id": None, # HuggingFace repo id, used if this model is meant to be downloaded from HuggingFace then run locally
+    "model_name": None, # api model name, used if this model is meant to be used online
+    "filelist": None, # file list in the repo to download, now only support .gguf file
+    "description": "", # description of the model, displayed in the chatbot header when cursor overing the info icon
+    "placeholder": { # placeholder for the model, displayed in the chat area when no message is present
+        "slogan": i18n("gpt_default_slogan"),
+    },
+    "model_type": None, # model type, used to determine the model's behavior. If not set, the model type is inferred from the model name
+    "multimodal": False, # whether the model is multimodal
+    "api_host": None, # base url for the model's api
+    "api_key": None, # api key for the model's api
+    "system": INITIAL_SYSTEM_PROMPT, # system prompt for the model
+    "token_limit": 4096, # context window size
+    "single_turn": False, # whether the model is single turn
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "n_choices": 1,
+    "stop": [],
+    "max_generation": None, # maximum token limit for a single generation
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "logit_bias": None,
+    "metadata": {} # additional metadata for the model
+}
 
 # Additional metadata for online and local models
 MODEL_METADATA = {
@@ -214,7 +241,12 @@ os.makedirs("lora", exist_ok=True)
 os.makedirs("history", exist_ok=True)
 for dir_name in os.listdir("models"):
     if os.path.isdir(os.path.join("models", dir_name)):
-        if dir_name not in MODELS:
+        display_name = None
+        for model_name, metadata in MODEL_METADATA.items():
+            if "model_name" in metadata and metadata["model_name"] == dir_name:
+                display_name = model_name
+                break
+        if display_name is None:
             MODELS.append(dir_name)
 
 TOKEN_OFFSET = 1000 # 模型的token上限减去这个值，得到软上限。到达软上限之后，自动尝试减少token占用。
@@ -239,6 +271,9 @@ HISTORY_NAME_METHODS = [
     i18n("第一条提问"),
     i18n("模型自动总结（消耗tokens）"),
 ]
+
+DIRECTLY_SUPPORTED_IMAGE_FORMATS = (".png", ".jpeg", ".gif", ".webp") # image types that can be directly uploaded, other formats will be converted to jpeg
+IMAGE_FORMATS = DIRECTLY_SUPPORTED_IMAGE_FORMATS + (".jpg", ".bmp", "heic", "heif") # all supported image formats
 
 
 WEBSEARCH_PTOMPT_TEMPLATE = """\
@@ -364,5 +399,5 @@ small_and_beautiful_theme = gr.themes.Soft(
         input_background_fill="#F6F6F6",
         # chatbot_code_background_color="*neutral_950",
         # gradio 会把这个几个chatbot打头的变量应用到其他md渲染的地方，鬼晓得怎么想的。。。
-        chatbot_code_background_color_dark="*neutral_950",
+        # chatbot_code_background_color_dark="*neutral_950",
     )
