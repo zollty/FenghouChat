@@ -33,7 +33,7 @@
   "local_embedding": false, //是否在本地编制索引
   "hide_history_when_not_logged_in": false, //未登录情况下是否不展示对话历史
   "check_update": false, //是否启用检查更新
-  "default_model": "Qwen1.5-7B GPT", // 默认模型
+  "default_model": "Qwen2-7B-Instruct GPT", // 默认模型
   "chat_name_method_index": 2, // 选择对话名称的方法。0: 使用日期时间命名；1: 使用第一条提问命名，2: 使用模型自动总结
   "bot_avatar": "web_assets/icon/any-icon-512.png", // 机器人头像，可填写本地或网络图片链接，或者"none"（不显示头像）
   "user_avatar": "default", // 用户头像，可填写本地或网络图片链接，或者"none"（不显示头像）
@@ -45,7 +45,7 @@
   "legacy_api_usage": false, // 是否使用旧版 API 用量查询接口（OpenAI现已关闭该接口，但是如果你在使用第三方 API，第三方可能仍然支持此接口）
 
   //== 风后助理设置 ==
-  "default_chuanhu_assistant_model": "chatglm3-6b-32k GPT", //风后助理使用的模型，可选gpt-3.5-turbo或者gpt-4等
+  "default_chuanhu_assistant_model": "Qwen2-7B-Instruct GPT", //风后助理使用的模型，可选gpt-3.5-turbo或者gpt-4等
   "GOOGLE_CSE_ID": "", //谷歌搜索引擎ID，用于风后助理Pro模式，获取方式请看 https://stackoverflow.com/questions/37083058/programmatically-searching-google-in-python-using-custom-search
   "GOOGLE_API_KEY": "", //谷歌API Key，用于风后助理Pro模式
   "WOLFRAM_ALPHA_APPID": "", //Wolfram Alpha API Key，用于风后助理Pro模式，获取方式请看 https://products.wolframalpha.com/api/
@@ -72,10 +72,10 @@
   //     "sk-xxxxxxxxxxxxxxxxxxxxxxxx3"
   // ],
   // 自定义OpenAI API Base
-  "openai_api_base": "http://127.0.0.1:20000", //"https://api.openai.com",
+  // "openai_api_base": "http://127.0.0.1:20000", //"https://api.openai.com",
   // 自定义使用代理（请替换代理URL）
-  "https_proxy": "http://127.0.0.1:7890",
-  "http_proxy": "http://127.0.0.1:7890",
+  "https_proxy": "http://192.168.33.105:7890",
+  "http_proxy": "http://192.168.33.105:7890",
   // 自定义端口、自定义ip（请替换对应内容）
   "server_name": "0.0.0.0",
   "server_port": 7775,

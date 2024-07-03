@@ -20,10 +20,10 @@ API_HOST = "api.openai.com"
 # COMPLETION_URL = "https://api.openai.com/v1/completions"
 # BALANCE_API_URL="https://api.openai.com/dashboard/billing/credit_grants"
 # USAGE_API_URL="https://api.openai.com/dashboard/billing/usage"
-OPENAI_API_BASE = "http://127.0.0.1:20000/v1" # "https://api.openai.com/v1"
-CHAT_COMPLETION_URL = "http://127.0.0.1:20000/v1/chat/completions"
+OPENAI_API_BASE = "http://127.0.0.1:20000/v2" # "https://api.openai.com/v1"
+CHAT_COMPLETION_URL = "http://127.0.0.1:20000/v2/chat/completions"
 IMAGES_COMPLETION_URL = "http://127.0.0.1:20000/v1/images/generations"
-COMPLETION_URL = "http://127.0.0.1:20000/v1/completions"
+COMPLETION_URL = "http://127.0.0.1:20000/v2/completions"
 BALANCE_API_URL = "http://127.0.0.1:20000/dashboard/billing/credit_grants"
 USAGE_API_URL = "http://127.0.0.1:20000/dashboard/billing/usage"
 HISTORY_DIR = Path("history")
@@ -59,6 +59,7 @@ CHUANHU_DESCRIPTION = "FenghouChat base on [ChuanhuChat](https://github.com/zoll
 ONLINE_MODELS = [
     "Qwen-1.8B GPT",
     "Qwen1.5-7B GPT",
+    "Qwen2-7B-Instruct GPT",
     "chatglm3-6b-32k GPT",
     # "GPT3.5 Turbo",
     # "GPT3.5 Turbo Instruct",
@@ -126,6 +127,10 @@ MODEL_METADATA = {
     },
    "Qwen1.5-7B GPT": {
         "model_name": "Qwen1.5-7B-Chat",
+        "token_limit": 8192
+    },
+   "Qwen2-7B-Instruct GPT": {
+        "model_name": "Qwen2-7B-Instruct",
         "token_limit": 8192
     },
 }
